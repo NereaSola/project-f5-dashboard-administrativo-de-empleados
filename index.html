@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto f5</title>
-    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
+
 <body>
-    <h1>hola</h1>
+
+    <main class="login-page">
+
+        <div class="login-card">
+
+            <header class="login-header">
+                <h1 class="login-title">AdminPanel</h1>
+                <p class="login-subtitle">Gestiona tu ecosistema de forma segura</p>
+            </header>
+
+            <div class="login-form">
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Correo electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="email" id="email" placeholder="admin@ejemplo.com"
+                            autocomplete="email" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="password" id="password" placeholder="••••••••"
+                            autocomplete="current-password" />
+                    </div>
+                </div>
+
+                <button class="btn-login" type="button">
+                    Iniciar Sesión
+                    <span class="btn-arrow">→</span>
+                </button>
+
+            </div>
+        </div>
+
+    </main>
+
+
     <script type="module" src="./main.js"></script>
 </body>
+
 </html>
