@@ -255,3 +255,51 @@ body {
   }
 }
  
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+  border-bottom: 1px solid $color-border;
+  background: $color-white;
+  font-family: $font-family;
+
+  .header-logo {
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-text;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-active {
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-primary;
+      border-bottom: 2px solid $color-primary;
+      padding-bottom: 2px;
+      cursor: default;
+    }
+
+    .logout-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-text-muted;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
