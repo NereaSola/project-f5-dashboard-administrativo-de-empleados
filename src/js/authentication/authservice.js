@@ -21,6 +21,7 @@ export async function checkCredentials(emailInput, passwordInput) {
 
         if (emailInput === email && passwordInput === password) {
             console.log("✅ Login correcto. Bienvenido!");
+            localStorage.setItem("loggedUser", JSON.stringify({ email: emailInput, isAuth: true }));  //CAMBIO LOCALSTORAGE
             window.location.href = "../../dashboard.html";
             return true;
         } else {
