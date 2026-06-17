@@ -67,17 +67,9 @@ body {
   background: $color-white;
   border-radius: $radius-card;
   box-shadow: $shadow-card;
-  padding: 28px 20px;           // móvil: padding reducido
+  padding: clamp(14px, 6vw, 40px) clamp(12px, 5vw, 32px);
   width: 100%;
   max-width: 400px;
- 
-  @media (min-width: $bp-sm) {
-    padding: 36px 28px;
-  }
- 
-  @media (min-width: $bp-md) {
-    padding: 40px 32px;
-  }
 }
  
 // ─── HEADER ───────────────────────────────────────────────────────
@@ -91,29 +83,17 @@ body {
 }
  
 .login-title {
-  font-size: 1.8rem;            // móvil: más pequeño
+   font-size: clamp(1.3rem, 6vw, 2.2rem);
   font-weight: 800;
   color: $color-primary;
   letter-spacing: -0.5px;
   margin-bottom: 8px;
- 
-  @media (min-width: $bp-sm) {
-    font-size: 2rem;
-  }
- 
-  @media (min-width: $bp-md) {
-    font-size: 2.2rem;
-  }
 }
  
 .login-subtitle {
-  font-size: 0.875rem;
+ font-size: clamp(0.75rem, 3vw, 0.95rem);
   color: $color-text-muted;
   line-height: 1.5;
- 
-  @media (min-width: $bp-md) {
-    font-size: 0.95rem;
-  }
 }
  
 // ─── FORMULARIO ───────────────────────────────────────────────────
@@ -158,17 +138,25 @@ body {
 }
  
 .form-input {
-  width: 100%;
-  padding: 12px 12px 12px 44px;  // móvil: padding reducido
+   width: 100%;
+  padding: clamp(10px, 3vw, 14px) clamp(10px, 3vw, 14px) clamp(10px, 3vw, 14px) clamp(36px, 10vw, 46px);
   border: 1.5px solid $color-border;
   border-radius: $radius-input;
   font-family: $font-family;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
   color: $color-text;
   background: $color-white;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
- 
+
+  &::placeholder {
+    color: $color-icon;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
+  }
   &::placeholder {
     color: $color-icon;
   }
@@ -185,38 +173,34 @@ body {
  
 // ─── BOTÓN ────────────────────────────────────────────────────────
 .btn-login {
-  display: flex;
+ display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 14px;                // móvil: ligeramente menor
+  padding: clamp(10px, 4vw, 16px);
   margin-top: 4px;
   background: $color-primary;
   color: $color-white;
   border: none;
   border-radius: $radius-btn;
   font-family: $font-family;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 3.5vw, 1.05rem);
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
   box-shadow: $shadow-btn;
   transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
- 
+
   &:hover {
     background: $color-primary-dark;
     box-shadow: 0 6px 20px rgba($color-primary, 0.4);
     transform: translateY(-1px);
   }
- 
+
   &:active {
     transform: translateY(0);
     box-shadow: $shadow-btn;
-  }
- 
-  @media (min-width: $bp-md) {
-    padding: 16px;
-    font-size: 1.05rem;
   }
 }
  
