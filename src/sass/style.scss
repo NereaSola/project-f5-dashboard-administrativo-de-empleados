@@ -1,33 +1,4 @@
-@use 'reset.scss';
- 
-// ─── VARIABLES ───────────────────────────────────────────────────
-$color-primary:     #EC4899;
-$color-primary-dark:#C2185B;
-$color-secondary:   #FDE047;
-$color-tertiary:    #111827;
-$color-neutral:     #F9FAFB;
- 
-$color-text:        #1a1a2e;
-$color-text-muted:  #6B7280;
-$color-border:      #e5e7eb;
-$color-icon:        #9CA3AF;
-$color-white:       #ffffff;
- 
-$font-family:       'Hanken Grotesk', 'Segoe UI', Arial, sans-serif;
- 
-$radius-input:      10px;
-$radius-card:       20px;
-$radius-btn:        12px;
- 
-$shadow-card:       0 8px 40px rgba(0, 0, 0, 0.08);
-$shadow-btn:        0 4px 16px rgba(236, 72, 153, 0.35);
- 
-// ─── BREAKPOINTS ─────────────────────────────────────────────────
-$bp-sm:  480px;   // móvil grande
-$bp-md:  768px;   // tablet
-$bp-lg:  1024px;  // escritorio
- 
-// ─── BASE ─────────────────────────────────────────────────────────
+/* ─── RESET INICIAL UNIFICADO ─── */
 *,
 *::before,
 *::after {
@@ -35,255 +6,201 @@ $bp-lg:  1024px;  // escritorio
   margin: 0;
   padding: 0;
 }
- 
+
 body {
-  font-family: $font-family;
-  color: $color-text;
+  font-family: "Hanken Grotesk", "Segoe UI", Arial, sans-serif;
+  color: #1a1a2e;
   min-height: 100vh;
+  background-color: #f9f5fb;
 }
- 
-// ─── PÁGINA ───────────────────────────────────────────────────────
+
+/* ─── COMPONENTE: VISTA LOGIN ─── */
 .login-page {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 16px;                // móvil: menos padding
- 
-  background: linear-gradient(
-    160deg,
-    #f0ecf5 0%,
-    #f9f5fb 40%,
-    #f5f0ec 100%
-  );
- 
-  @media (min-width: $bp-md) {
-    padding: 24px;
-  }
+  padding: 16px;
+  background: linear-gradient(160deg, #f0ecf5 0%, #f9f5fb 40%, #f5f0ec 100%);
 }
- 
-// ─── CARD ─────────────────────────────────────────────────────────
+
 .login-card {
-  background: $color-white;
-  border-radius: $radius-card;
-  box-shadow: $shadow-card;
-  padding: clamp(14px, 6vw, 40px) clamp(12px, 5vw, 32px);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  padding: 28px 20px;
   width: 100%;
   max-width: 400px;
 }
- 
-// ─── HEADER ───────────────────────────────────────────────────────
-.login-header {
+
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #EC4899;
   text-align: center;
   margin-bottom: 24px;
- 
-  @media (min-width: $bp-md) {
-    margin-bottom: 32px;
-  }
 }
- 
-.login-title {
-   font-size: clamp(1.3rem, 6vw, 2.2rem);
-  font-weight: 800;
-  color: $color-primary;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-}
- 
-.login-subtitle {
- font-size: clamp(0.75rem, 3vw, 0.95rem);
-  color: $color-text-muted;
-  line-height: 1.5;
-}
- 
-// ─── FORMULARIO ───────────────────────────────────────────────────
+
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
- 
-  @media (min-width: $bp-md) {
-    gap: 20px;
-  }
 }
- 
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
- 
-.form-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: $color-text;
-}
- 
-// ─── INPUT WRAPPER ────────────────────────────────────────────────
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
- 
-.input-icon {
-  position: absolute;
-  left: 14px;
-  color: $color-icon;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-}
- 
+
 .form-input {
-   width: 100%;
-  padding: clamp(10px, 3vw, 14px) clamp(10px, 3vw, 14px) clamp(10px, 3vw, 14px) clamp(36px, 10vw, 46px);
-  border: 1.5px solid $color-border;
-  border-radius: $radius-input;
-  font-family: $font-family;
-  font-size: clamp(0.85rem, 3vw, 0.95rem);
-  color: $color-text;
-  background: $color-white;
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  &::placeholder {
-    color: $color-icon;
-  }
-
   &:focus {
-    border-color: $color-primary;
-    box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
-  }
-  &::placeholder {
-    color: $color-icon;
-  }
- 
-  &:focus {
-    border-color: $color-primary;
-    box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
-  }
- 
-  @media (min-width: $bp-md) {
-    padding: 14px 14px 14px 46px;
+    border-color: #EC4899;
   }
 }
- 
-// ─── BOTÓN ────────────────────────────────────────────────────────
+
 .btn-login {
- display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   width: 100%;
-  padding: clamp(10px, 4vw, 16px);
-  margin-top: 4px;
-  background: $color-primary;
-  color: $color-white;
+  padding: 14px;
+  background: #EC4899;
+  color: #ffffff;
   border: none;
-  border-radius: $radius-btn;
-  font-family: $font-family;
-  font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+  border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
-  box-shadow: $shadow-btn;
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+}
 
-  &:hover {
-    background: $color-primary-dark;
-    box-shadow: 0 6px 20px rgba($color-primary, 0.4);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
-    box-shadow: $shadow-btn;
-  }
-}
- 
-.btn-arrow {
-  font-size: 1.2rem;
-  line-height: 1;
-}
- 
-// ─── VALIDACIÓN ───────────────────────────────────────────────────
-.form-input--error {
-  border-color: $color-primary-dark;
-  box-shadow: 0 0 0 3px rgba($color-primary-dark, 0.12);
- 
-  &:focus {
-    border-color: $color-primary-dark;
-    box-shadow: 0 0 0 3px rgba($color-primary-dark, 0.12);
-  }
-}
- 
-.form-error {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: $color-primary-dark;
-  padding-left: 2px;
-  animation: fadeInDown 0.2s ease;
-}
- 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
- 
+/* ─── COMPONENTE: HEADER (Tu diseño original) ─── */
 .header-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
   height: 56px;
-  border-bottom: 1px solid $color-border;
-  background: $color-white;
-  font-family: $font-family;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
 
-  .header-logo {
-    font-size: 18px;
-    font-weight: 500;
-    color: $color-text;
+.header-nav .header-logo {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.header-nav .header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-nav .header-right .nav-active {
+  font-size: 14px;
+  font-weight: 500;
+  color: #EC4899;
+  border-bottom: 2px solid #EC4899;
+  padding-bottom: 2px;
+}
+
+.header-nav .header-right .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── COMPONENTE: CONTENEDOR GRID DE EMPLEADOS ─── */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 32px 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── COMPONENTE: TARJETA DE EMPLEADO (BEM) ─── */
+.card-employee {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   }
 
-  .header-right {
+  &__header {
+    background-color: #F9FAFB;
+    border-bottom: 1.5px solid #e5e7eb;
+    padding: 20px;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #EC4899;
+    margin-bottom: 2px;
+  }
+
+  &__username {
+    font-size: 0.85rem;
+    color: #6B7280;
+  }
+
+  &__body {
+    padding: 20px;
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    .nav-active {
-      font-size: 14px;
-      font-weight: 500;
-      color: $color-primary;
-      border-bottom: 2px solid $color-primary;
-      padding-bottom: 2px;
-      cursor: default;
-    }
+  &__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9CA3AF;
+    font-weight: 700;
+  }
 
-    .logout-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      color: $color-text-muted;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
+  &__address {
+    background-color: #F9FAFB;
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px dashed #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 
-      &:hover {
-        color: $color-primary;
-      }
-    }
+  &__address-line {
+    font-size: 0.9rem;
+    color: #1a1a2e;
+    line-height: 1.4;
+  }
+
+  &__address-strong {
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  &__address-sub {
+    font-size: 0.8rem;
+    color: #6B7280;
   }
 }
