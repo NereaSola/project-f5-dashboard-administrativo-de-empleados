@@ -6,21 +6,39 @@ export function isValidEmail(email) {
 }
  
 export function validateEmailField(input, container) {
-  if (input.value !== "" && !isValidEmail(input.value)) {
-    input.classList.add("form-input--error");
-    let errorEl = document.getElementById("email-error");
-    if (!errorEl) {
-      errorEl = document.createElement("p");
-      errorEl.id = "email-error";
-      errorEl.className = "form-error";
-      container.appendChild(errorEl);
-    }
-    errorEl.textContent = "El formato del correo no es válido (ej: usuario@dominio.com).";
-    errorEl.style.display = "block";
-    return false;
+  const value = input.value.trim();
+  
+  // 1. Buscamos o creamos el contenedor del error para este campo
+  let errorEl = document.getElementById("email-error");
+  if (!errorEl && container) {
+    errorEl = document.createElement("p");
+    errorEl.id = "email-error";
+    errorEl.className = "form-error";
+    container.appendChild(errorEl);
   }
+
+  // 2. CASO A: El campo está completamente vacío
+  if (value === "") {
+    input.classList.add("form-input--error");
+    if (errorEl) {
+      errorEl.textContent = "⚠️ El campo de correo electrónico es obligatorio.";
+      errorEl.style.display = "block";
+    }
+    return false; // Validación fallida
+  }
+
+  // 3. CASO B: Tiene texto pero el formato de correo está mal
+  if (!isValidEmail(value)) {
+    input.classList.add("form-input--error");
+    if (errorEl) {
+      errorEl.textContent = "El formato del correo no es válido (ej: usuario@dominio.com).";
+      errorEl.style.display = "block";
+    }
+    return false; // Validación fallida
+  }
+
+  // 4. CASO C: Todo está perfecto
   input.classList.remove("form-input--error");
-  const errorEl = document.getElementById("email-error");
   if (errorEl) errorEl.style.display = "none";
   return true;
 }
@@ -30,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput      = document.getElementById("email");
   const errorsContainer = document.querySelector(".login-form");
  
-  emailInput.addEventListener("blur",  () => validateEmailField(emailInput, errorsContainer));
-  emailInput.addEventListener("input", () => validateEmailField(emailInput, errorsContainer));
+  if (emailInput && errorsContainer) {
+    emailInput.addEventListener("blur",  () => validateEmailField(emailInput, errorsContainer));
+    emailInput.addEventListener("input", () => validateEmailField(emailInput, errorsContainer));
+  }
 });

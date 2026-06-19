@@ -77,7 +77,7 @@ body {
   box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
 }
 
-/* ─── COMPONENTE: HEADER (Tu diseño original) ─── */
+/* ─── COMPONENTE: HEADER ─── */
 .header-nav {
   display: flex;
   align-items: center;
@@ -87,19 +87,16 @@ body {
   border-bottom: 1px solid #e5e7eb;
   background: #ffffff;
 }
-
 .header-nav .header-logo {
   font-size: 18px;
   font-weight: 500;
   color: #1a1a2e;
 }
-
 .header-nav .header-right {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-
 .header-nav .header-right .nav-active {
   font-size: 14px;
   font-weight: 500;
@@ -107,7 +104,6 @@ body {
   border-bottom: 2px solid #EC4899;
   padding-bottom: 2px;
 }
-
 .header-nav .header-right .logout-btn {
   display: flex;
   align-items: center;
@@ -128,6 +124,13 @@ body {
   padding: 32px 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+.dashboard-grid__empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #4b5563;
+  font-weight: 600;
 }
 
 /* ─── COMPONENTE: TARJETA DE EMPLEADO (BEM) ─── */
@@ -194,6 +197,61 @@ body {
 .card-employee__address-sub {
   font-size: 0.8rem;
   color: #6B7280;
+}
+
+/* ─── BARRA DE FILTRADO ALFABÉTICO (SITUADO EN LA RAÍZ PRINCIPAL) ─── */
+.alphabet-filter-container {
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alphabet-filter-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alphabet-filter {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  background: #ffffff !important;
+  padding: 16px !important;
+  border-radius: 14px !important;
+  border: 1.5px solid #e5e7eb !important;
+}
+
+.alphabet-btn {
+  background: #f3f4f6 !important;
+  border: 1px solid #d1d5db !important;
+  color: #4b5563 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 0 12px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.alphabet-btn:hover {
+  background: #ec4899 !important;
+  color: #ffffff !important;
+  border-color: #ec4899 !important;
+}
+.alphabet-btn--active {
+  background: #ec4899 !important;
+  color: #ffffff !important;
+  border-color: #ec4899 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
