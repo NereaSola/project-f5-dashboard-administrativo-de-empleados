@@ -8,8 +8,18 @@ describe('Email Validation', () => {
     expect(isValidEmail('test@example.com')).toEqual(true);
   });
 
-  test('should return false for invalid email', () => {
+  test('should return false for invalid email missing @', () => {
     expect(isValidEmail('invalid-email')).toEqual(false);
+  });
+
+  test('should return false when the email is missing the domain extension', () => {
+    // Ejemplo: Tiene arroba pero no tiene el ".com" ni ninguna extensión válida
+    expect(isValidEmail('user@domain')).toEqual(false);
+  });
+
+  test('should return false when the extension is incomplete', () => {
+    // Ejemplo: Tiene el punto pero le faltan los caracteres de la extensión
+    expect(isValidEmail('user@domain.')).toEqual(false);
   });
 
 });
